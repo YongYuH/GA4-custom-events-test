@@ -1,9 +1,3 @@
-function gtag() {
-  ;(window as any).dataLayer = (window as any).dataLayer || []
-  // eslint-disable-next-line
-  ;(window as any).dataLayer.push(arguments)
-}
-
 export function initializeGtag(): void {
   const GoogleAnalyticsMeasurementID = 'G-0NS23S5KS9'
   // @ts-ignore
@@ -59,6 +53,5 @@ export function pushGA4Event(args: PushGA4EventArgs): void {
     ...optionalParameters,
   }
 
-  // @ts-ignore
-  gtag(parameters)
+  dataLayer.push(parameters)
 }
