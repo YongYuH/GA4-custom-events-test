@@ -11,7 +11,7 @@ export function initializeGtag(): void {
 
 interface PushGA4EventArgs {
   campaignName?: string
-  event: string
+  event_name: string
   followName?: string
   followType?: string
   method?: string
@@ -28,7 +28,7 @@ export function pushGA4Event(args: PushGA4EventArgs): void {
 
   const {
     campaignName,
-    event,
+    event_name,
     followName,
     followType,
     method,
@@ -38,7 +38,7 @@ export function pushGA4Event(args: PushGA4EventArgs): void {
   } = args
 
   const requiredParameters = {
-    event,
+    event_name,
   }
 
   const optionalParameters = {

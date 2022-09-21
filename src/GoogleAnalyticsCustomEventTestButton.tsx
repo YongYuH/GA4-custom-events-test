@@ -5,7 +5,7 @@ import { pushGA4Event } from './utils'
 const GoogleAnalyticsCustomEventTestButton = () => {
   const handleClick = () => {
     pushGA4Event({
-      event: 'login_popup_click',
+      event_name: 'login_popup_click',
       method: 'email',
     })
   }
