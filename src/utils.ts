@@ -1,5 +1,5 @@
 export function initializeGtag(): void {
-  const GoogleAnalyticsMeasurementID = 'G-0NS23S5KS9'
+  const GoogleAnalyticsMeasurementID = 'G-E13KF3JV7Y'
   // @ts-ignore
   gtag('js', new Date())
   // @ts-ignore
