@@ -3,29 +3,13 @@
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-E13KF3JV7Y"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-E13KF3JV7Y');
-  </script>
+  <script src="./initializeGtag.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GA 4 Test</title>
 </head>
 <body>
   <div id="root"></div>
-  <script>
-    /**
-    * The following event is sent when the page loads. You could
-    * wrap the event in a function to call the event when certain
-    * events (e.g., a click event) happen on your site.
-    */
-    gtag('event', 'screen_view', {
-      'app_name': 'myAppName',
-      'screen_name': 'Home'
-    });
-  </script> 
   <script src="./index.js"></script>
 </body>
 </html>
