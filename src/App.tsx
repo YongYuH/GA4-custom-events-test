@@ -1,9 +1,9 @@
 import React from 'react'
 
-import Hello from './Hello'
+import GoogleAnalyticsCustomEventTestButton from './GoogleAnalyticsCustomEventTestButton'
 
 const App = () => {
-  return <Hello />
+  return <GoogleAnalyticsCustomEventTestButton />
 }
 
 export default App
