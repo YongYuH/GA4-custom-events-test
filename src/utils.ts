@@ -1,11 +1,3 @@
-export function initializeGtag(): void {
-  const GoogleAnalyticsMeasurementID = 'G-E13KF3JV7Y'
-  // @ts-ignore
-  gtag('js', new Date())
-  // @ts-ignore
-  gtag('config', GoogleAnalyticsMeasurementID)
-}
-
 interface PushGA4EventArgs {
   campaignName?: string
   event_name: string
