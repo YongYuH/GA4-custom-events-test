@@ -10,7 +10,7 @@ function initializeGtag() {
 
   gtag('js', new Date())
   gtag('config', GoogleAnalyticsUAMeasurementID)
-  gtag('config', GoogleAnalytics4MeasurementID)
+  gtag('config', GoogleAnalytics4MeasurementID, { 'debug_mode': true })
 }
 
 initializeGtag()
