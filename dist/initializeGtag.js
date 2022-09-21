@@ -5,8 +5,8 @@ function gtag() {
 }
 
 function initializeGtag() {
-  const GoogleAnalytics4MeasurementID = 'G-E13KF3JV7Y'
-  const GoogleAnalyticsUAMeasurementID = 'UA-242012534-1'
+  const GoogleAnalytics4MeasurementID = 'G-GN65ZYWGJZ'
+  const GoogleAnalyticsUAMeasurementID = 'UA-242022426-1'
 
   gtag('js', new Date())
   gtag('config', GoogleAnalyticsUAMeasurementID)
