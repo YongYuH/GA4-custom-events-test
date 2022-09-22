@@ -1,6 +1,6 @@
 interface PushGA4EventArgs {
   campaignName?: string
-  event_name: string
+  event: string
   followName?: string
   followType?: string
   method?: string
@@ -17,7 +17,7 @@ export function pushGA4Event(args: PushGA4EventArgs): void {
 
   const {
     campaignName,
-    event_name,
+    event,
     followName,
     followType,
     method,
@@ -27,7 +27,7 @@ export function pushGA4Event(args: PushGA4EventArgs): void {
   } = args
 
   const requiredParameters = {
-    event_name,
+    event,
   }
 
   const optionalParameters = {
