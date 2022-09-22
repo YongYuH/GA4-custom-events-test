@@ -1,8 +1,11 @@
 import React from 'react'
 
+import { pushGA4Event } from './utils'
+
 const GoogleAnalyticsCustomEventTestButton = () => {
   const handleClick = () => {
-    gtag('event', 'login_popup_click', {
+    pushGA4Event({
+      event: 'login_popup_click',
       method: 'email',
     })
   }
