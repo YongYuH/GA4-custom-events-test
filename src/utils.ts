@@ -1,13 +1,21 @@
-interface PushGA4EventArgs {
-  campaignName?: string
-  event: string
-  followName?: string
-  followType?: string
-  method?: string
-  newsletterName?: string
-  paywallType?: string
-  triggerPoint?: string
+type PopupEvent = 'login_popup_click' | 'login_popup_imp'
+type TriggerPoint = 'button'
+type PopupEventParameters = {
+  event: PopupEvent
+  trigger_point: TriggerPoint
 }
+
+type EmailEvent = 'login_email_back_click' | 'login_email_forget_password_click'
+type EmailEventParameters = {
+  event: EmailEvent
+}
+
+type ForgetPasswordEvent = 'login_forget_password_back_click' | 'login_forget_password_ok_click'
+type ForgetPasswordEventParameters = {
+  event: ForgetPasswordEvent
+}
+
+type PushGA4EventArgs = PopupEventParameters | EmailEventParameters | ForgetPasswordEventParameters
 
 export function pushGA4Event(args: PushGA4EventArgs): void {
   const dataLayer = (window as any).dataLayer
@@ -15,35 +23,5 @@ export function pushGA4Event(args: PushGA4EventArgs): void {
     return
   }
 
-  const {
-    campaignName,
-    event,
-    followName,
-    followType,
-    method,
-    newsletterName,
-    paywallType,
-    triggerPoint,
-  } = args
-
-  const requiredParameters = {
-    event,
-  }
-
-  const optionalParameters = {
-    ...(campaignName ? { campaign_name: campaignName } : {}),
-    ...(followName ? { follow_name: followName } : {}),
-    ...(followType ? { follow_type: followType } : {}),
-    ...(method ? { method: method } : {}),
-    ...(newsletterName ? { newsletter_name: newsletterName } : {}),
-    ...(paywallType ? { paywall_type: paywallType } : {}),
-    ...(triggerPoint ? { trigger_point: triggerPoint } : {}),
-  }
-
-  const parameters = {
-    ...requiredParameters,
-    ...optionalParameters,
-  }
-
-  dataLayer.push(parameters)
+  dataLayer.push(args)
 }

@@ -1,9 +1,9 @@
 import React from 'react'
 
-import GoogleAnalyticsCustomEventTestButton from './GoogleAnalyticsCustomEventTestButton'
+import TriggerPopupButton from './TriggerPopupButton'
 
 const App = () => {
-  return <GoogleAnalyticsCustomEventTestButton />
+  return <TriggerPopupButton />
 }
 
 export default App
