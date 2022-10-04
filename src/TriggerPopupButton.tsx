@@ -31,7 +31,6 @@ const TriggerPopupButton = () => {
     setIsModalOpen(false)
     pushGA4Event({
       event: 'login_popup_close_click',
-      trigger_point: 'pop up close button',
     })
   }
 
@@ -39,7 +38,7 @@ const TriggerPopupButton = () => {
     setStepType('email')
     pushGA4Event({
       event: 'login_popup_click',
-      trigger_point: 'email button',
+      method: 'email',
     })
   }
 
