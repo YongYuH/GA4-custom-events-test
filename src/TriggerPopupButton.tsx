@@ -20,19 +20,27 @@ const TriggerPopupButton = () => {
   const [stepType, setStepType] = React.useState<StepType>('initial')
 
   const handleClick = () => {
+    setIsModalOpen(true)
     pushGA4Event({
       event: 'login_popup_imp',
-      trigger_point: 'button',
+      trigger_point: 'pop up open button',
     })
-    setIsModalOpen(true)
   }
 
   const handleModalClose = () => {
     setIsModalOpen(false)
+    pushGA4Event({
+      event: 'login_popup_close',
+      trigger_point: 'pop up close button',
+    })
   }
 
   const handleGoToEmailStep = () => {
     setStepType('email')
+    pushGA4Event({
+      event: 'login_popup_click',
+      trigger_point: 'email button',
+    })
   }
 
   const handleEmailStepForgetPasswordButtonClick = () => {
