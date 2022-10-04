@@ -1,4 +1,4 @@
-type PopupEvent = 'login_popup_click' | 'login_popup_close' | 'login_popup_imp'
+type PopupEvent = 'login_popup_click' | 'login_popup_close_click' | 'login_popup_imp'
 type TriggerPoint = 'pop up open button' | 'email button' | 'pop up close button'
 type PopupEventParameters = {
   event: PopupEvent
