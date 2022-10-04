@@ -30,7 +30,7 @@ const TriggerPopupButton = () => {
   const handleModalClose = () => {
     setIsModalOpen(false)
     pushGA4Event({
-      event: 'login_popup_close',
+      event: 'login_popup_close_click',
       trigger_point: 'pop up close button',
     })
   }
