@@ -22,7 +22,10 @@ const TriggerPopupButton = () => {
   const handleClick = () => {
     setIsModalOpen(true)
     pushGA4Event({
-      event: 'login_popup_imp',
+      event: 'tracking',
+      category: 'login',
+      sub_category: 'popup',
+      user_action: 'imp',
       trigger_point: 'pop up open button',
     })
   }
@@ -30,14 +33,20 @@ const TriggerPopupButton = () => {
   const handleModalClose = () => {
     setIsModalOpen(false)
     pushGA4Event({
-      event: 'login_popup_close_click',
+      event: 'tracking',
+      category: 'login',
+      sub_category: 'popup_close',
+      user_action: 'click',
     })
   }
 
   const handleGoToEmailStep = () => {
     setStepType('email')
     pushGA4Event({
-      event: 'login_popup_click',
+      event: 'tracking',
+      category: 'login',
+      sub_category: 'popup',
+      user_action: 'click',
       method: 'email',
     })
   }
@@ -45,27 +54,39 @@ const TriggerPopupButton = () => {
   const handleEmailStepForgetPasswordButtonClick = () => {
     setStepType('forgetPassword')
     pushGA4Event({
-      event: 'login_email_forget_password_click',
+      event: 'tracking',
+      category: 'login',
+      sub_category: 'email_forget_password',
+      user_action: 'click',
     })
   }
 
   const handleEmailStepBackButtonClick = () => {
     setStepType('initial')
     pushGA4Event({
-      event: 'login_email_back_click',
+      event: 'tracking',
+      category: 'login',
+      sub_category: 'email_back',
+      user_action: 'click',
     })
   }
 
   const handleForgetPasswordStepOKButtonClick = () => {
     pushGA4Event({
-      event: 'login_forget_password_ok_click',
+      event: 'tracking',
+      category: 'login',
+      sub_category: 'forget_password_ok',
+      user_action: 'click',
     })
   }
 
   const handleForgetPasswordStepBackButtonClick = () => {
     setStepType('email')
     pushGA4Event({
-      event: 'login_forget_password_back_click',
+      event: 'tracking',
+      category: 'login',
+      sub_category: 'forget_password_back',
+      user_action: 'click',
     })
   }
 

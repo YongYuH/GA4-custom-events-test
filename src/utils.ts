@@ -1,29 +1,46 @@
-type EmailEvent = 'login_email_back_click' | 'login_email_forget_password_click'
+type EventName = 'tracking'
+
+type EmailSubCategory = 'email_back' | 'email_forget_password'
 type EmailEventParameters = {
-  event: EmailEvent
+  event: EventName
+  category: 'login'
+  sub_category: EmailSubCategory
+  user_action: 'click'
 }
 
-type ForgetPasswordEvent = 'login_forget_password_back_click' | 'login_forget_password_ok_click'
+type ForgetPasswordSubCategory = 'forget_password_back' | 'forget_password_ok'
 type ForgetPasswordEventParameters = {
-  event: ForgetPasswordEvent
+  event: EventName
+  category: 'login'
+  sub_category: ForgetPasswordSubCategory
+  user_action: 'click'
 }
 
-type LoginMethodClickEvent = 'login_popup_click'
+type LoginMethodSubCategory = 'popup'
 type Method = 'email'
 type LoginMethodClickEventParameters = {
-  event: LoginMethodClickEvent
+  event: EventName
+  category: 'login'
+  sub_category: LoginMethodSubCategory
+  user_action: 'click'
   method: Method
 }
 
-type PopupControlEvent = 'login_popup_close_click'
+type PopupControlSubCategory = 'popup_close'
 type PopupControlEventParameters = {
-  event: PopupControlEvent
+  event: EventName
+  category: 'login'
+  sub_category: PopupControlSubCategory
+  user_action: 'click'
 }
 
-type PopupImpressionEvent = 'login_popup_imp'
+type PopupImpressionSubCategory = 'popup'
 type TriggerPoint = 'pop up open button'
 type PopupImpressionEventParameters = {
-  event: PopupImpressionEvent
+  event: EventName
+  category: 'login'
+  sub_category: PopupImpressionSubCategory
+  user_action: 'imp'
   trigger_point: TriggerPoint
 }
 
