@@ -26,9 +26,7 @@ const TriggerPopupButton = () => {
       category: 'login',
       sub_category: 'popup',
       user_action: 'imp',
-      tracking: {
-        trigger_point: 'pop up open button',
-      },
+      trigger_point: 'pop up open button',
     })
   }
 
@@ -49,9 +47,7 @@ const TriggerPopupButton = () => {
       category: 'login',
       sub_category: 'popup',
       user_action: 'click',
-      tracking: {
-        method: 'email',
-      },
+      method: 'email',
     })
   }
 
