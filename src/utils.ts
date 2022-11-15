@@ -63,5 +63,11 @@ export function pushGA4Event(args: PushGA4EventArgs): void {
     return
   }
 
+  if ('customized_parameters' in args) {
+    dataLayer.push({
+      customized_parameters: undefined,
+    })
+  }
+
   dataLayer.push(args)
 }
