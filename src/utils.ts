@@ -18,12 +18,15 @@ type ForgetPasswordEventParameters = {
 
 type LoginMethodSubCategory = 'popup'
 type Method = 'email'
+type LoginMethodClickTrackingParameters = {
+  method: Method
+}
 type LoginMethodClickEventParameters = {
   event: EventName
   category: 'login'
   sub_category: LoginMethodSubCategory
   user_action: 'click'
-  method: Method
+  tracking: LoginMethodClickTrackingParameters
 }
 
 type PopupControlSubCategory = 'popup_close'
@@ -36,12 +39,15 @@ type PopupControlEventParameters = {
 
 type PopupImpressionSubCategory = 'popup'
 type TriggerPoint = 'pop up open button'
+type PopupImpressionTrackingParameters = {
+  trigger_point: TriggerPoint
+}
 type PopupImpressionEventParameters = {
   event: EventName
   category: 'login'
   sub_category: PopupImpressionSubCategory
   user_action: 'imp'
-  trigger_point: TriggerPoint
+  tracking: PopupImpressionTrackingParameters
 }
 
 type PushGA4EventArgs =
