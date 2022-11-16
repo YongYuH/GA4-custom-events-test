@@ -21,15 +21,24 @@ const TriggerPopupButton = () => {
 
   const handleClick = () => {
     setIsModalOpen(true)
-    pushGA4Event({
-      event: 'tracking',
-      category: 'login',
-      sub_category: 'popup',
-      user_action: 'imp',
-      customized_parameters: {
-        trigger_point: 'pop up open button',
+    pushGA4Event(
+      {
+        event: 'tracking',
+        category: 'login',
+        sub_category: 'popup',
+        user_action: 'imp',
+        customized_parameters: {
+          trigger_point: 'pop up open button',
+        },
       },
-    })
+      {
+        onDataLayerPushed: () => {
+          pushGA4Event({
+            customized_parameters: undefined,
+          })
+        },
+      }
+    )
   }
 
   const handleModalClose = () => {
@@ -44,15 +53,24 @@ const TriggerPopupButton = () => {
 
   const handleGoToEmailStep = () => {
     setStepType('email')
-    pushGA4Event({
-      event: 'tracking',
-      category: 'login',
-      sub_category: 'popup',
-      user_action: 'click',
-      customized_parameters: {
-        method: 'email',
+    pushGA4Event(
+      {
+        event: 'tracking',
+        category: 'login',
+        sub_category: 'popup',
+        user_action: 'click',
+        customized_parameters: {
+          method: 'email',
+        },
       },
-    })
+      {
+        onDataLayerPushed: () => {
+          pushGA4Event({
+            customized_parameters: undefined,
+          })
+        },
+      }
+    )
   }
 
   const handleEmailStepForgetPasswordButtonClick = () => {

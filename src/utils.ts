@@ -1,5 +1,11 @@
 type EventName = 'tracking'
 
+const keyOfCustomParameters = 'customized_parameters'
+
+type ClearCustomParameters = {
+  [keyOfCustomParameters]: undefined
+}
+
 type EmailSubCategory = 'email_back' | 'email_forget_password'
 type EmailEventParameters = {
   event: EventName
@@ -26,7 +32,7 @@ type LoginMethodClickEventParameters = {
   category: 'login'
   sub_category: LoginMethodSubCategory
   user_action: 'click'
-  customized_parameters: LoginMethodClickCustomizedParameters
+  [keyOfCustomParameters]: LoginMethodClickCustomizedParameters
 }
 
 type PopupControlSubCategory = 'popup_close'
@@ -47,27 +53,33 @@ type PopupImpressionEventParameters = {
   category: 'login'
   sub_category: PopupImpressionSubCategory
   user_action: 'imp'
-  customized_parameters: PopupImpressionCustomizedParameters
+  [keyOfCustomParameters]: PopupImpressionCustomizedParameters
 }
 
-type PushGA4EventArgs =
+type PushGA4EventParameters =
+  | ClearCustomParameters
   | EmailEventParameters
   | ForgetPasswordEventParameters
   | LoginMethodClickEventParameters
   | PopupControlEventParameters
   | PopupImpressionEventParameters
 
-export function pushGA4Event(args: PushGA4EventArgs): void {
+type PushGA4EventOption = {
+  onDataLayerPushed?: () => void
+}
+
+export function pushGA4Event(
+  parameters: PushGA4EventParameters,
+  option?: PushGA4EventOption
+): void {
   const dataLayer = (window as any).dataLayer
   if (!dataLayer) {
     return
   }
 
-  if ('customized_parameters' in args) {
-    dataLayer.push({
-      customized_parameters: undefined,
-    })
-  }
+  dataLayer.push(parameters)
 
-  dataLayer.push(args)
+  if (option?.onDataLayerPushed) {
+    option.onDataLayerPushed()
+  }
 }
