@@ -81,22 +81,20 @@ export function pushGA4Event(parameters: PushGA4EventParameters, option?: PushGA
   }
 }
 
-type CustomDimension = {
+type PushDataLayerPageVariablesParameters = {
   userPropertyForAllPagesDefinedInGA: 'user property for all pages defined in GA'
-  userPropertyForCustomTrackingDefinedInGA: 'user property for custom tracking defined in GA'
   userPropertyForAllPagesNotDefinedInGA: 'user property for all pages not defined in GA'
+  userPropertyForCustomTrackingDefinedInGA: 'user property for custom tracking defined in GA'
   userPropertyForCustomTrackingNotDefinedInGA: 'user property for custom tracking not defined in GA'
 }
 
-type PushGA4CustomDimensionParameters = {
-  custom_dimension: CustomDimension
-}
-
-export function pushGA4CustomDimension(parameters: PushGA4CustomDimensionParameters): void {
+export function pushDataLayerPageVariables(parameters: PushDataLayerPageVariablesParameters): void {
   const dataLayer = (window as any).dataLayer
   if (!dataLayer) {
     return
   }
 
-  dataLayer.push(parameters)
+  dataLayer.push({
+    page: parameters,
+  })
 }
